@@ -10,7 +10,7 @@
 * Finally, There is have an example auditing with archive schema.
 * Always store it auditing tables into the another schema. It is recommended!
 
-  ![alt text](files/revision.PNG)
+  ![alt text](files/Revision.PNG)
 
 
 ### Guides
