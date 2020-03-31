@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    hikari.schema: H2SCHEMA
+    username: kbhkn
+    password: h2
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:kbhkndb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS H2SCHEMA\;CREATE SCHEMA IF NOT EXISTS ARCHIVE_SCHEMA
+  jpa:
+    # database-platform: org.hibernate.dialect.Oracle12cDialect
+    database-platform: org.hibernate.dialect.H2Dialect
+    # Alyaws disable it. It's anti-pattern.
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate.format_sql: true
+      # Envers confs
+      org:
+        hibernate:
+          envers:
+            default_schema: ARCHIVE_SCHEMA
+            audit_table_suffix: _AUDIT_LOG
+            store_data_at_delete: true
+    show-sql: true
+  # H2 confs
+  h2:
+    console:
+      enabled: true
